@@ -1,0 +1,5 @@
+﻿Name,Department,Age,Date,SwipeInTime,SwipeOutTime,Manager
+Jim,It,25,1/11/2023,8.00 AM,5:00 PM,Rob
+Alex,Acct,6,1/10/2023,8.00 AM,6:00 PM,Rob
+Mar,Hr,27,1/11/2023,9.00 AM,7:00 PM,Pat
+Ben,Admin,28,1/11/2023,8.00 AM,8:00 PM,Pat
