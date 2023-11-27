@@ -1,0 +1,25 @@
+credentials:
+  usernames:
+    smarak:
+      email: smsenapati@tsys.com
+      name: Smarak
+      password: $2b$12$XQ31fpXo6HBjvITTegfkv.VXzqvyuO.dx7HHn8T2DeMJsCN0uZaFm
+    sudip:
+      email: smitra@tsys.com
+      name: Sudip
+      password: $2b$12$XQ31fpXo6HBjvITTegfkv.VXzqvyuO.dx7HHn8T2DeMJsCN0uZaFm
+    sahadev:
+      email: snawar@tsys.com
+      name: Sahadev
+      password: $2b$12$XQ31fpXo6HBjvITTegfkv.VXzqvyuO.dx7HHn8T2DeMJsCN0uZaFm
+    Swanand:
+      email: sathalye@tsys.com
+      name: Swanand
+      password: $2b$12$XQ31fpXo6HBjvITTegfkv.VXzqvyuO.dx7HHn8T2DeMJsCN0uZaFm
+cookie:
+  expiry_days: 30
+  key: random_signature_key # Must be string
+  name: secure cookie
+preauthorized:
+  emails:
+  - snawar@tsys.com
