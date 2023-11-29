@@ -4,6 +4,8 @@ import yaml
 from streamlit_authenticator import Authenticate
 from streamlit_option_menu import option_menu
 from yaml.loader import SafeLoader
+
+from EmployeeDashboard import show_dashboard_employee
 from Util import show_nlp, convert_pass
 from dashboard import show_dashboard
 
@@ -31,12 +33,12 @@ selected = None
 name, authentication_status, username = authenticator.login('Login')
 
 if authentication_status:
-    if username == 'swanand':
+    if username == '1':
         st.header(f'Welcome *{name}*')
-        side_bar_option = ["Graphs", "NLP", "Admin", "Logout"]
+        side_bar_option = ["Your data", "NLP", "Employee Data", "Logout"]
     else:
         st.header(f'Welcome *{name}*')
-        side_bar_option = ["Graphs", "NLP", "Logout"]
+        side_bar_option = ["Your data", "NLP", "Logout"]
 elif not authentication_status:
     st.error('Username/password is incorrect')
 elif authentication_status is None:
@@ -50,12 +52,12 @@ if side_bar_option:
             options=side_bar_option,
         )
 
-if selected == 'Graphs':
-    show_dashboard()
+if selected == 'Your data':
+    show_dashboard_employee(name)
 
 if selected == 'NLP':
     show_nlp()
-if selected == 'Admin':
-    'Admin module'
+if selected == 'Employee Data':
+    show_dashboard(username)
 if selected == "Logout":
     authenticator.logout('Are you sure you want to logout ?')

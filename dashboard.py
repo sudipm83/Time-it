@@ -3,16 +3,16 @@ import datetime
 import streamlit as st
 import plotly.express as px
 import pandas as pd
-import os
-import warnings
-from PyPDF2 import PdfReader
+# import os
+# import warnings
+# from PyPDF2 import PdfReader
 
 
-def show_dashboard():
+def show_dashboard(username):
     df = pd.read_csv('Employee data 2.csv')
 
     clm1, clm2, clm3 = st.columns(3)
-
+    df = df[df["Manager Level 1"] == int(username)]
     with clm1:
         # Create for team
         team = st.multiselect("Pick your Team", df["Team Name"].unique())
@@ -46,11 +46,10 @@ def show_dashboard():
     with col2:
         date2 = pd.to_datetime(st.date_input("End Date", endDate))
         date2 = datetime.datetime.combine(date2, datetime.time(23, 59))
-
+#swipe in date shouldn't begreater than end date /// TO DO
     df = df[(df["Swipein Date"] >= date1) & (df["Swipein Date"] <= date2)].copy()
 
     # Filter the data based on Region, State and City
-
     if not team and not scrumTeam and not teamMember:
         filtered_df = df
     elif not scrumTeam and not teamMember:
@@ -72,9 +71,8 @@ def show_dashboard():
 
     emp_df_sum = filtered_df.groupby(by=["Employee Name"], as_index=False)["Total hours"].sum()
     emp_df_avg = filtered_df.groupby(by=["Team Name"], as_index=False)["Total hours"].mean()
-
     with col1:
-        st.subheader("Employe wise data")
+        st.subheader("Employee wise data")
         fig = px.bar(emp_df_sum, x="Employee Name", y="Total hours",
                      text=['{:,.2f} hrs'.format(x) for x in emp_df_sum["Total hours"]],
                      template="seaborn")
