@@ -4,7 +4,7 @@ import streamlit as st
 import plotly.express as px
 import pandas as pd
 
-from Util import show_nlp, download_csv
+from Util import show_my_nlp
 
 
 def show_my_dashboard(loggedinusername):
@@ -36,5 +36,6 @@ def show_my_dashboard(loggedinusername):
 
     if st.checkbox('show raw data', False):
         st.write(df_original)
-    show_nlp(df_original)
+
+    show_my_nlp(df_original)
     # download_csv(df_original)

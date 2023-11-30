@@ -13,6 +13,7 @@ import streamlit_authenticator as stauth
 # pip install langchain
 # pip install python-dotenv
 # pip install langchain-experimental
+# pip install openai
 
 # streamlit run main.py
 
@@ -27,14 +28,23 @@ def show_graph():
     st.altair_chart(chart)
 
 
-def show_nlp(df_original):
-    input_query = st.text_input("Enter your query !")
-    st.subheader(input_query)
+# def change_key(id)
+
+def show_my_nlp(df_original):
+    my_nlp = st.text_input("Enter your query !")
+    # st.subheader(input_query)
     df_original.to_csv('LoggedInUser.csv', index=False)
-    smart_chat2('LoggedInUser.csv', input_query)
+    smart_chat('LoggedInUser.csv', my_nlp)
+
+
+def show_employee_nlp(df_original):
+    emp_nlp = st.text_input("Enter your query !")
+    df_original.to_csv('LoggedInUser.csv', index=False)
+    smart_chat('LoggedInUser.csv', emp_nlp)
 
 
 def smart_chat(user_csv, question):
+    load_dotenv()
     if user_csv is not None:
         user_question = question
 

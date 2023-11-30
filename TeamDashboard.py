@@ -4,7 +4,7 @@ import streamlit as st
 import plotly.express as px
 import pandas as pd
 
-from Util import show_nlp
+from Util import show_employee_nlp
 
 
 def show_team_dashboard(username):
@@ -90,4 +90,4 @@ def show_team_dashboard(username):
     if st.checkbox('show raw data', False):
         st.write(df_original)
 
-    show_nlp(df_original)
+    show_employee_nlp(df_original)

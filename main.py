@@ -6,7 +6,7 @@ from streamlit_option_menu import option_menu
 from yaml.loader import SafeLoader
 
 from MyDashboard import show_my_dashboard
-from Util import show_nlp, convert_pass
+from Util import convert_pass
 from TeamDashboard import show_team_dashboard
 
 
