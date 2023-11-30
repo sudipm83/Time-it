@@ -4,6 +4,8 @@ import streamlit as st
 import plotly.express as px
 import pandas as pd
 
+from Util import show_nlp
+
 
 def show_team_dashboard(username):
     df = pd.read_csv('Employee data 2.csv')
@@ -12,6 +14,8 @@ def show_team_dashboard(username):
     df_l1 = df[df["Manager Level 1"].str.upper() == username.upper()]
     df_l2 = df[df["Manager Level 2"].str.upper() == username.upper()]
     df = pd.concat([df_l1, df_l2])
+    df_original = df
+
     with clm1:
         # Create for team
         team = st.multiselect("Pick your Team", df["Team Name"].unique())
@@ -83,5 +87,7 @@ def show_team_dashboard(username):
         fig.update_traces(text=filtered_df["Team Name"], textposition="outside")
         st.plotly_chart(fig, use_container_width=True)
 
-    if st.checkbox('show raw data', True):
-        st.write(filtered_df)
+    if st.checkbox('show raw data', False):
+        st.write(df_original)
+
+    show_nlp(df_original)

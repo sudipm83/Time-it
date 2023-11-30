@@ -1,6 +1,7 @@
 import altair as alt
 import streamlit as st
-from langchain.agents import create_csv_agent
+# from langchain.agents import create_csv_agent
+from langchain_experimental.agents.agent_toolkits import create_csv_agent
 from langchain.llms import OpenAI
 import pandas as pd
 from dotenv import load_dotenv
@@ -11,6 +12,7 @@ import streamlit_authenticator as stauth
 # pip install streamlit-option_menu
 # pip install langchain
 # pip install python-dotenv
+# pip install langchain-experimental
 
 # streamlit run main.py
 
@@ -25,13 +27,12 @@ def show_graph():
     st.altair_chart(chart)
 
 
-def show_nlp():
-    st.write('this is nlp section')
+def show_nlp(df_original):
+    input_query = st.text_input("Enter your query !")
+    st.subheader(input_query)
+    df_original.to_csv('LoggedInUser.csv', index=False)
+    smart_chat2('LoggedInUser.csv', input_query)
 
-
-def convert_pass():
-    hashed_password = stauth.Hasher(['pass']).generate()
-    return hashed_password
 
 def smart_chat(user_csv, question):
     if user_csv is not None:
@@ -44,3 +45,20 @@ def smart_chat(user_csv, question):
             response = agent.run(user_question)
 
             st.write(response)
+
+
+def download_csv(df_original):
+    kuchTo = str()
+    # pandas.DataFrame.to_csv
+    # st.write(pd.read_csv(df_original.to_csv('LoggedInUser.csv', index=False)))
+
+
+def smart_chat2(user_csv, question):
+    st.write(user_csv + question)
+    df = pd.read_csv(user_csv)
+    st.write(df)
+
+
+def convert_pass():
+    hashed_password = stauth.Hasher(['pass']).generate()
+    return hashed_password

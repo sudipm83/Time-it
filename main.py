@@ -7,7 +7,8 @@ from yaml.loader import SafeLoader
 
 from MyDashboard import show_my_dashboard
 from Util import show_nlp, convert_pass
-from dashboard import show_team_dashboard
+from TeamDashboard import show_team_dashboard
+
 
 st.set_page_config(page_title="Time-It", page_icon=":bar_chart:", layout="wide")
 warnings.filterwarnings("ignore")
@@ -55,8 +56,8 @@ if side_bar_option:
 if selected == 'My Data':
     show_my_dashboard(name)
 
-
 if selected == "My team's Data":
     show_team_dashboard(username)
+
 if selected == "Logout":
     authenticator.logout('Are you sure you want to logout ?')
