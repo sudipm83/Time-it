@@ -7,12 +7,12 @@ import pandas as pd
 from Util import show_employee_nlp
 
 
-def show_team_dashboard(username):
+def show_team_dashboard(name):
     df = pd.read_csv('Employe_data_refine_4.csv')
 
     clm1, clm2, clm3 = st.columns(3)
-    df_l1 = df[df["manager_level_1"].str.upper() == username.upper()]
-    df_l2 = df[df["manager_level_2"].str.upper() == username.upper()]
+    df_l1 = df[df["manager_level_1"] == name]
+    df_l2 = df[df["manager_level_2"] == name]
     df = pd.concat([df_l1, df_l2])
     df_original = df
 

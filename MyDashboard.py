@@ -32,7 +32,7 @@ def show_my_dashboard(loggedinusername):
     else :
         df = df[(df["swipe_date"] >= date1) & (df["swipe_date"] <= date2)].copy()
 
-        st.subheader("Employee wise data")
+        st.subheader("My Data")
         fig = px.bar(df, x="swipe_date", y="total_hours in hh:mm:ss",
                      text=['{:,.2f} hrs'.format(x) for x in df["total_hours in hh:mm:ss"]],
                      template="seaborn")
