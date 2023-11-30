@@ -1,0 +1,26 @@
+employee_id,employee_name,manager_level_1,manager_level_2,team_name,scrum_team_name,swipe_date,in_time in hh:mm:ss,out_time in hh:mm:ss,total_hours in hh:mm:ss
+12,Sahadev,Swanand,Shraddha,GPeCom_India,Agni,20/11/2023,9:00:00,18:15:00,9.25
+12,Sahadev,Swanand,Shraddha,GPeCom_India,Agni,21/11/2023,9:15:00,17:00:00,7.75
+12,Sahadev,Swanand,Shraddha,GPeCom_India,Agni,22/11/2023,10:00:00,19:00:00,9.00
+12,Sahadev,Swanand,Shraddha,GPeCom_India,Agni,23/11/2023,9:15:00,17:15:00,8.00
+12,Sahadev,Swanand,Shraddha,GPeCom_India,Agni,24/11/2023,9:15:00,20:35:00,11.33
+12,Sahadev,Swanand,Shraddha,GPeCom_India,Agni,27/11/2023,9:15:00,18:15:00,9.00
+13,Smarak,Swanand,Shraddha,GPeCom_India,Agni,13/11/2023,9:00:00,18:00:00,9.00
+13,Smarak,Swanand,Shraddha,GPeCom_India,Agni,14/11/2023,9:15:00,18:15:00,9.00
+13,Smarak,Swanand,Shraddha,GPeCom_India,Agni,15/11/2023,10:00:00,19:00:00,9.00
+13,Smarak,Swanand,Shraddha,GPeCom_India,Agni,16/11/2023,9:15:00,18:35:00,9.33
+15,Dhaval,Swanand,Shraddha,GPeCom_India,Vayu,24/11/2023,10:00:00,18:00:00,8.00
+14,Sudip,Swanand,Shraddha,GPeCom_India,Vayu,20/11/2023,9:00:00,18:00:00,9.00
+14,Sudip,Swanand,Shraddha,GPeCom_India,Vayu,21/11/2023,9:15:00,18:15:00,9.00
+14,Sudip,Swanand,Shraddha,GPeCom_India,Vayu,22/11/2023,10:00:00,19:00:00,9.00
+14,Sudip,Swanand,Shraddha,GPeCom_India,Vayu,23/11/2023,9:15:00,18:35:00,9.33
+14,Sudip,Swanand,Shraddha,GPeCom_India,Vayu,24/11/2023,9:15:00,17:35:00,8.33
+1,Swanand,Shraddha,Pranay,GPeCom_India,Agni_Vayu,20/11/2023,9:00:00,18:00:00,9.00
+1,Swanand,Shraddha,Pranay,GPeCom_India,Agni_Vayu,21/11/2023,9:00:00,18:00:00,9.00
+1,Swanand,Shraddha,Pranay,GPeCom_India,Agni_Vayu,22/11/2023,9:00:00,18:00:00,9.00
+1,Swanand,Shraddha,Pranay,GPeCom_India,Agni_Vayu,23/11/2023,9:00:00,18:00:00,9.00
+1,Swanand,Shraddha,Pranay,GPeCom_India,Agni_Vayu,24/11/2023,9:00:00,18:00:00,9.00
+2,Shraddha,Pranay,CEO,GPeCom_India,,20/11/2023,9:00:00,18:00:00,9.00
+21,Bharti,Colin,Eoin,GPeCom_Dublin,Stonecutters,25/11/2023,9:15:00,20:35:00,11.33
+22,Nimph,Colin,Eoin,GPeCom_Dublin,Stonecutters,25/11/2023,9:15:00,20:35:00,11.33
+3,Colin,Eoin,CEO,GPeCom_Dublin,Stonecutters,25/11/2023,9:15:00,20:35:00,11.33
