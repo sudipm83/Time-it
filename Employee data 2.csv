@@ -1,23 +1,24 @@
-Employee ID,Employee Name,Manager Level 1,Team Name,Scrum team name,Swipein Date,Swipeout Date,Total hours
-12,Sahadev,1,GPeCom,Agni,20/11/2023 09:00:00,20/11/2023 18:00:00,9
-12,Sahadev,1,GPeCom,Agni,21/11/2023 09:15:00,21/11/2023 18:15:00,9
-12,Sahadev,1,GPeCom,Agni,22/11/2023 10:00:00,22/11/2023 19:00:00,9
-12,Sahadev,1,GPeCom,Agni,23/11/2023 09:15:00,23/11/2023 18:35:00,9
-12,Sahadev,1,GPeCom,Agni,24/11/2023 09:15:00,24/11/2023 20:35:00,9
-13,Smarak,1,GPeCom,Agni,20/11/2023 09:00:00,20/11/2023 18:00:00,9
-13,Smarak,1,GPeCom,Agni,21/11/2023 09:15:00,21/11/2023 18:15:00,9
-13,Smarak,1,GPeCom,Agni,22/11/2023 10:00:00,22/11/2023 19:00:00,9
-13,Smarak,1,GPeCom,Agni,23/11/2023 09:15:00,23/11/2023 18:35:00,9
-13,Smarak,1,GPeCom,Agni,24/11/2023 09:15:00,24/11/2023 20:35:00,9
-14,Sudip,1,GPeCom,Vayu,20/11/2023 09:00:00,20/11/2023 18:00:00,9
-14,Sudip,1,GPeCom,Vayu,21/11/2023 09:15:00,21/11/2023 18:15:00,9
-14,Sudip,1,GPeCom,Vayu,22/11/2023 10:00:00,22/11/2023 19:00:00,9
-14,Sudip,1,GPeCom,Vayu,23/11/2023 09:15:00,23/11/2023 18:35:00,9
-14,Sudip,1,GPeCom,Vayu,24/11/2023 09:15:00,24/11/2023 20:35:00,9
-1,Swanand,2,GPeCom,Agni,20/11/2023 09:00:00,20/11/2023 18:00:00,9
-1,Swanand,2,GPeCom,Agni,21/11/2023 09:00:00,21/11/2023 18:00:00,9
-1,Swanand,2,GPeCom,Agni,22/11/2023 09:00:00,22/11/2023 18:00:00,9
-1,Swanand,2,GPeCom,Agni,23/11/2023 09:00:00,23/11/2023 18:00:00,9
-1,Swanand,2,GPeCom,Agni,24/11/2023 09:00:00,24/11/2023 18:00:00,9
-2,Shraddha,3,GPeCom,Agni,20/11/2023 09:00:00,20/11/2023 18:00:00,9
-
+Employee ID,Employee Name,Manager Level 1,Manager Level 2,Team Name,Scrum team name,Swipein Date,Swipeout Date,Total hours
+12,Sahadev,Swanand,Shraddha,GPeCom,Agni,20/11/2023 09:00:00,20/11/2023 18:00:00,9
+12,Sahadev,Swanand,Shraddha,GPeCom,Agni,21/11/2023 09:15:00,21/11/2023 18:15:00,9
+12,Sahadev,Swanand,Shraddha,GPeCom,Agni,22/11/2023 10:00:00,22/11/2023 19:00:00,9
+12,Sahadev,Swanand,Shraddha,GPeCom,Agni,23/11/2023 09:15:00,23/11/2023 18:35:00,9
+12,Sahadev,Swanand,Shraddha,GPeCom,Agni,24/11/2023 09:15:00,24/11/2023 20:35:00,9
+12,Sahadev,Swanand,Shraddha,GPeCom,Agni,27/11/2023 09:15:00,27/11/2023 20:35:00,9
+13,Smarak,Swanand,Shraddha,GPeCom,Agni,20/11/2023 09:00:00,20/11/2023 18:00:00,9
+13,Smarak,Swanand,Shraddha,GPeCom,Agni,21/11/2023 09:15:00,21/11/2023 18:15:00,9
+13,Smarak,Swanand,Shraddha,GPeCom,Agni,22/11/2023 10:00:00,22/11/2023 19:00:00,9
+13,Smarak,Swanand,Shraddha,GPeCom,Agni,23/11/2023 09:15:00,23/11/2023 18:35:00,9
+13,Smarak,Swanand,Shraddha,GPeCom,Agni,24/11/2023 09:15:00,24/11/2023 20:35:00,9
+14,Sudip,Swanand,Shraddha,GPeCom,Vayu,20/11/2023 09:00:00,20/11/2023 18:00:00,9
+14,Sudip,Swanand,Shraddha,GPeCom,Vayu,21/11/2023 09:15:00,21/11/2023 18:15:00,9
+14,Sudip,Swanand,Shraddha,GPeCom,Vayu,22/11/2023 10:00:00,22/11/2023 19:00:00,9
+14,Sudip,Swanand,Shraddha,GPeCom,Vayu,23/11/2023 09:15:00,23/11/2023 18:35:00,9
+14,Sudip,Swanand,Shraddha,GPeCom,Vayu,23/11/2023 09:15:00,23/11/2023 18:35:00,9
+14,Sudip,Swanand,Shraddha,GPeCom,Vayu,24/11/2023 09:15:00,24/11/2023 20:35:00,9
+1,Swanand,Shraddha,Pranay,GPeCom,Agni,20/11/2023 09:00:00,20/11/2023 18:00:00,9
+1,Swanand,Shraddha,Pranay,GPeCom,Agni,21/11/2023 09:00:00,21/11/2023 18:00:00,9
+1,Swanand,Shraddha,Pranay,GPeCom,Agni,22/11/2023 09:00:00,22/11/2023 18:00:00,9
+1,Swanand,Shraddha,Pranay,GPeCom,Agni,23/11/2023 09:00:00,23/11/2023 18:00:00,9
+1,Swanand,Shraddha,Pranay,GPeCom,Agni,24/11/2023 09:00:00,24/11/2023 18:00:00,9
+2,Shraddha,Pranay,Anshul,GPeCom,Agni,20/11/2023 09:00:00,20/11/2023 18:00:00,9

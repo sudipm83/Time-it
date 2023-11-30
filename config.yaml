@@ -12,9 +12,13 @@ credentials:
       email: snawar@tsys.com
       name: Sahadev
       password: $2b$12$XQ31fpXo6HBjvITTegfkv.VXzqvyuO.dx7HHn8T2DeMJsCN0uZaFm
-    "1":
+    "swanand":
       email: sathalye@tsys.com
       name: Swanand
+      password: $2b$12$XQ31fpXo6HBjvITTegfkv.VXzqvyuO.dx7HHn8T2DeMJsCN0uZaFm
+    "shraddha":
+      email: shraddha@tsys.com
+      name: Shraddha
       password: $2b$12$XQ31fpXo6HBjvITTegfkv.VXzqvyuO.dx7HHn8T2DeMJsCN0uZaFm
 cookie:
   expiry_days: 30

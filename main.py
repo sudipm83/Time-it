@@ -33,7 +33,7 @@ selected = None
 name, authentication_status, username = authenticator.login('Login')
 
 if authentication_status:
-    if username == '1':
+    if username == 'swanand' or username == 'shraddha' :
         st.header(f'Welcome *{name}*')
         side_bar_option = ["Your data", "NLP", "Employee Data", "Logout"]
     else:

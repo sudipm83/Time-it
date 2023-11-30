@@ -12,7 +12,9 @@ def show_dashboard(username):
     df = pd.read_csv('Employee data 2.csv')
 
     clm1, clm2, clm3 = st.columns(3)
-    df = df[df["Manager Level 1"] == int(username)]
+    df_l1 = df[df["Manager Level 1"].str.upper() == username.upper()]
+    df_l2 = df[df["Manager Level 2"].str.upper() == username.upper()]
+    df = pd.concat([df_l1,df_l2])
     with clm1:
         # Create for team
         team = st.multiselect("Pick your Team", df["Team Name"].unique())
@@ -42,7 +44,7 @@ def show_dashboard(username):
 
     with col1:
         date1 = pd.to_datetime(st.date_input("Start Date", startDate))
-
+        date1 = datetime.datetime.combine(date1, datetime.time(00, 00))
     with col2:
         date2 = pd.to_datetime(st.date_input("End Date", endDate))
         date2 = datetime.datetime.combine(date2, datetime.time(23, 59))
