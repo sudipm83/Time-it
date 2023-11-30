@@ -1,5 +1,7 @@
 import altair as alt
 import streamlit as st
+from langchain.agents import create_csv_agent
+from langchain.llms import OpenAI
 import pandas as pd
 from dotenv import load_dotenv
 import streamlit_authenticator as stauth
@@ -30,3 +32,15 @@ def show_nlp():
 def convert_pass():
     hashed_password = stauth.Hasher(['pass']).generate()
     return hashed_password
+
+def smart_chat(user_csv, question):
+    if user_csv is not None:
+        user_question = question
+
+        llm = OpenAI(temperature=0)
+        agent = create_csv_agent(llm, user_csv, verbose=True)
+
+        if user_question is not None and user_question != "":
+            response = agent.run(user_question)
+
+            st.write(response)
