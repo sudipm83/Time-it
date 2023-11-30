@@ -3,18 +3,15 @@ import datetime
 import streamlit as st
 import plotly.express as px
 import pandas as pd
-# import os
-# import warnings
-# from PyPDF2 import PdfReader
 
 
-def show_dashboard(username):
+def show_team_dashboard(username):
     df = pd.read_csv('Employee data 2.csv')
 
     clm1, clm2, clm3 = st.columns(3)
     df_l1 = df[df["Manager Level 1"].str.upper() == username.upper()]
     df_l2 = df[df["Manager Level 2"].str.upper() == username.upper()]
-    df = pd.concat([df_l1,df_l2])
+    df = pd.concat([df_l1, df_l2])
     with clm1:
         # Create for team
         team = st.multiselect("Pick your Team", df["Team Name"].unique())
@@ -48,7 +45,7 @@ def show_dashboard(username):
     with col2:
         date2 = pd.to_datetime(st.date_input("End Date", endDate))
         date2 = datetime.datetime.combine(date2, datetime.time(23, 59))
-#swipe in date shouldn't begreater than end date /// TO DO
+    # swipe in date shouldn't begreater than end date /// TO DO
     df = df[(df["Swipein Date"] >= date1) & (df["Swipein Date"] <= date2)].copy()
 
     # Filter the data based on Region, State and City
