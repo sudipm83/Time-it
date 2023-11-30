@@ -8,40 +8,39 @@ from Util import show_employee_nlp
 
 
 def show_team_dashboard(username):
-    df = pd.read_csv('Employee data 2.csv')
+    df = pd.read_csv('Employe_data_refine_4.csv')
 
     clm1, clm2, clm3 = st.columns(3)
-    df_l1 = df[df["Manager Level 1"].str.upper() == username.upper()]
-    df_l2 = df[df["Manager Level 2"].str.upper() == username.upper()]
+    df_l1 = df[df["manager_level_1"].str.upper() == username.upper()]
+    df_l2 = df[df["manager_level_2"].str.upper() == username.upper()]
     df = pd.concat([df_l1, df_l2])
     df_original = df
 
     with clm1:
         # Create for team
-        team = st.multiselect("Pick your Team", df["Team Name"].unique())
+        team = st.multiselect("Pick your Team", df["team_name"].unique())
         if not team:
             df2 = df.copy()
         else:
-            df2 = df[df["Team Name"].isin(team)]
+            df2 = df[df["team_name"].isin(team)]
 
     with clm2:
         # Create for scrum team
-        scrumTeam = st.multiselect("Pick the scrum team", df2["Scrum team name"].unique())
+        scrumTeam = st.multiselect("Pick the scrum team", df2["scrum_team_name"].unique())
         if not scrumTeam:
             df3 = df2.copy()
         else:
-            df3 = df2[df2["Scrum team name"].isin(scrumTeam)]
+            df3 = df2[df2["scrum_team_name"].isin(scrumTeam)]
 
     with clm3:
         # Create for employee
-        teamMember = st.multiselect("Pick team member", df3["Employee Name"].unique())
+        teamMember = st.multiselect("Pick team member", df3["employee_name"].unique())
 
     col1, col2 = st.columns((2))
-    df["Swipein Date"] = pd.to_datetime(df["Swipein Date"])
-    df["Swipeout Date"] = pd.to_datetime(df["Swipeout Date"])
+    df["swipe_date"] = pd.to_datetime(df["swipe_date"])
     # Getting the min and max date
-    startDate = pd.to_datetime(df["Swipein Date"]).min()
-    endDate = pd.to_datetime(df["Swipein Date"]).max()
+    startDate = pd.to_datetime(df["swipe_date"]).min()
+    endDate = pd.to_datetime(df["swipe_date"]).max()
 
     with col1:
         date1 = pd.to_datetime(st.date_input("Start Date", startDate))
@@ -50,44 +49,46 @@ def show_team_dashboard(username):
         date2 = pd.to_datetime(st.date_input("End Date", endDate))
         date2 = datetime.datetime.combine(date2, datetime.time(23, 59))
     # swipe in date shouldn't begreater than end date /// TO DO
-    df = df[(df["Swipein Date"] >= date1) & (df["Swipein Date"] <= date2)].copy()
-
-    # Filter the data based on Region, State and City
-    if not team and not scrumTeam and not teamMember:
-        filtered_df = df
-    elif not scrumTeam and not teamMember:
-        filtered_df = df[df["Team Name"].isin(team)]
-    elif not team and not teamMember:
-        filtered_df = df[df["Scrum team name"].isin(scrumTeam)]
-    elif scrumTeam and teamMember:
-        filtered_df = df3[df["Scrum team name"].isin(scrumTeam) & df3["Employee Name"].isin(teamMember)]
-    elif team and teamMember:
-        filtered_df = df3[df["Team Name"].isin(team) & df3["Employee Name"].isin(teamMember)]
-    elif team and scrumTeam:
-        filtered_df = df3[df["Team Name"].isin(team) & df3["Scrum team name"].isin(scrumTeam)]
-    elif teamMember:
-        filtered_df = df3[df3["Employee Name"].isin(teamMember)]
+    df = df[(df["swipe_date"] >= date1) & (df["swipe_date"] <= date2)].copy()
+    if date1 > date2:
+        st.error('end date must be greater than start date')
     else:
-        filtered_df = df3[
-            df3["Team Name"].isin(team) & df3["Scrum team name"].isin(scrumTeam) & df3["Employee Name"].isin(
-                teamMember)]
+        # Filter the data based on Region, State and City
+        if not team and not scrumTeam and not teamMember:
+            filtered_df = df
+        elif not scrumTeam and not teamMember:
+            filtered_df = df[df["team_name"].isin(team)]
+        elif not team and not teamMember:
+            filtered_df = df[df["scrum_team_name"].isin(scrumTeam)]
+        elif scrumTeam and teamMember:
+            filtered_df = df3[df["scrum_team_name"].isin(scrumTeam) & df3["employee_name"].isin(teamMember)]
+        elif team and teamMember:
+            filtered_df = df3[df["team_name"].isin(team) & df3["employee_name"].isin(teamMember)]
+        elif team and scrumTeam:
+            filtered_df = df3[df["team_name"].isin(team) & df3["scrum_team_name"].isin(scrumTeam)]
+        elif teamMember:
+            filtered_df = df3[df3["employee_name"].isin(teamMember)]
+        else:
+            filtered_df = df3[
+                df3["team_name"].isin(team) & df3["scrum_team_name"].isin(scrumTeam) & df3["employee_name"].isin(
+                    teamMember)]
 
-    emp_df_sum = filtered_df.groupby(by=["Employee Name"], as_index=False)["Total hours"].sum()
-    emp_df_avg = filtered_df.groupby(by=["Team Name"], as_index=False)["Total hours"].mean()
-    with col1:
-        st.subheader("Employee wise data")
-        fig = px.bar(emp_df_sum, x="Employee Name", y="Total hours",
-                     text=['{:,.2f} hrs'.format(x) for x in emp_df_sum["Total hours"]],
-                     template="seaborn")
-        st.plotly_chart(fig, use_container_width=True, height=200)
+        emp_df_sum = filtered_df.groupby(by=["employee_name"], as_index=False)["total_hours in hh:mm:ss"].sum()
+        emp_df_avg = filtered_df.groupby(by=["scrum_team_name"], as_index=False)["total_hours in hh:mm:ss"].mean()
+        with col1:
+            st.subheader("Employee wise data")
+            fig = px.bar(emp_df_sum, x="employee_name", y="total_hours in hh:mm:ss",
+                         text=['{:,.2f} hrs'.format(x) for x in emp_df_sum["total_hours in hh:mm:ss"]],
+                         template="seaborn")
+            st.plotly_chart(fig, use_container_width=True, height=200)
 
-    with col2:
-        st.subheader("Team wise data")
-        fig = px.pie(emp_df_avg, values="Total hours", names="Team Name")
-        fig.update_traces(text=filtered_df["Team Name"], textposition="outside")
-        st.plotly_chart(fig, use_container_width=True)
+        with col2:
+            st.subheader("Team wise data")
+            fig = px.pie(emp_df_avg, values="total_hours in hh:mm:ss", names="scrum_team_name")
+            fig.update_traces(text=filtered_df["scrum_team_name"], textposition="outside")
+            st.plotly_chart(fig, use_container_width=True)
 
-    if st.checkbox('show raw data', False):
-        st.write(df_original)
+        if st.checkbox('show raw data', False):
+            st.write(df_original)
 
-    show_employee_nlp(df_original)
+        show_employee_nlp(df_original)
